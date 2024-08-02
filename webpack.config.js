@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const { register } = require('module');
 
 module.exports = {
   entry: {
@@ -14,6 +15,7 @@ module.exports = {
     jadwal: "./src/scripts/jadwal.js",
     jenislayanan: "./src/scripts/jenislayanan.js",
     login: "./src/scripts/login.js",
+    register: "./src/scripts/register.js",
     lupapassword: "./src/scripts/lupapassword.js",
     pembayaran: "./src/scripts/pembayaran.js",
     langganan: "./src/scripts/langganan.js",
@@ -112,6 +114,11 @@ module.exports = {
       filename: 'login.html',
       template: path.resolve(__dirname, 'src/templates/login.html'),
       chunks: ['login'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'register.html',
+      template: path.resolve(__dirname, 'src/templates/register.html'),
+      chunks: ['register'],
     }),
     new HtmlWebpackPlugin({
       filename: 'lupapassword.html',
